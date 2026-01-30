@@ -1,7 +1,6 @@
 # ⚡ AtruStore - Modern E-commerce SPA
 
-![Project Banner](https://via.placeholder.com/1200x400.png?text=AtruStore+Preview)
-*Substitua este link acima por um print real do seu projeto rodando*
+![alt text](image.png)
 
 ## 📖 Sobre o Projeto
 
