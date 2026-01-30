@@ -1,16 +1,15 @@
 import { createContext, useState, useContext, useEffect } from 'react';
+import { toast } from 'sonner';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  // 1. LEITURA INTELIGENTE (LAZY INITIALIZATION)
-  // Em vez de começar com useState([]), passamos uma função.
-  // O React executa isso apenas UMA vez quando o site carrega.
+
   const [cart, setCart] = useState(() => {
-    // Tenta buscar os dados salvos no navegador
+ 
     const savedCart = localStorage.getItem('@AtruStore:cart');
     
-    // Se achou, converte de Texto para JSON. Se não achou, retorna array vazio.
+  
     if (savedCart) {
       return JSON.parse(savedCart);
     }
@@ -19,15 +18,9 @@ export const CartProvider = ({ children }) => {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // 2. ESCRITA AUTOMÁTICA (SIDE EFFECT)
-  // O useEffect vigia a variável 'cart'.
-  // Toda vez que 'cart' muda, ele executa essa função de salvar.
   useEffect(() => {
-    // O LocalStorage só aceita texto, por isso usamos JSON.stringify
     localStorage.setItem('@AtruStore:cart', JSON.stringify(cart));
   }, [cart]);
-
-  // --- DAQUI PRA BAIXO NADA MUDOU ---
   
   const addToCart = (product) => {
     setCart((prev) => {
@@ -37,7 +30,13 @@ export const CartProvider = ({ children }) => {
       }
       return [...prev, { ...product, quantity: 1 }];
     });
-    setIsSidebarOpen(true);
+    toast.success(`${product.name} adicionado!`, {
+      description: "Seu carrinho foi atualizado.",
+      action: {
+        label: 'Ver Carrinho',
+        onClick: () => setIsSidebarOpen(true),
+      },
+    })
   };
 
   const removeFromCart = (id) => setCart(prev => prev.filter(item => item.id !== id));

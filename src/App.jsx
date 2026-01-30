@@ -1,3 +1,4 @@
+import { Toaster } from 'sonner';
 import { useState } from 'react';
 import { CartProvider } from './context/CartContext';
 import { products } from './data/products';
@@ -14,6 +15,7 @@ export default function App() {
   return (
     <CartProvider>
       <div className="min-h-screen bg-slate-950 font-sans">
+        <Toaster position='bottom-right' theme='dark' richColors/>
         <Navbar />
         <CartSidebar />
         <main>
