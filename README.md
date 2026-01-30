@@ -1,4 +1,4 @@
-# ⚡ AtruStore - Modern E-commerce SPA
+# AtruStore - Modern E-commerce SPA
 
 ![alt text](image-1.png)
 
