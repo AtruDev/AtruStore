@@ -9,8 +9,18 @@
 }
 
 @keyframes slideIn {
-  from { transform: translateX(100%);}
-  to {transform: translateX(0);}
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
-html {scroll-behavior: smooth;}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
