@@ -1,4 +1,8 @@
- AtruStore — High Performance Peripherals<p align="center"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" /><img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" /></p>
+ AtruStore — High Performance Peripherals
+
+ <img width="1305" height="931" alt="image" src="https://github.com/user-attachments/assets/360463b2-8490-415b-9008-09aedff14536" />  
+
+ <p align="center"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /><img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" /><img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" /></p>
 
 O AtruStore é um e-commerce especializado em hardware e periféricos de alto nível. O projeto foi construído focando em performance de renderização e uma interface imersiva, utilizando o que há de mais moderno no ecossistema React.
 
