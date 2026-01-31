@@ -1,4 +1,4 @@
-AtruStore - E-commerce de Periféricos Gamer
+truStore - E-commerce de Periféricos Gamer
 O AtruStore é uma Single Page Application (SPA) de e-commerce desenvolvida com React, focada em alta performance e interface responsiva. O projeto foi estruturado para demonstrar conceitos avançados de desenvolvimento front-end, como gestão de estado global, roteamento dinâmico e persistência de dados.
 
 Tecnologias e Ferramentas
