@@ -3,8 +3,8 @@ import { Toaster } from "sonner";
 import { CartProvider } from "./context/CartContext";
 import { Navbar } from "./components/Navbar";
 import { CartSidebar } from "./components/CartSidebar";
-import { Home } from "./pages/Home"; // <--- Verifique se esse arquivo existe!
-import { ProductDetails } from "./pages/ProductDetails"; // <--- Verifique se esse arquivo existe!
+import { Home } from "./pages/Home"; 
+import { ProductDetails } from "./App.jsx"; 
 
 export default function App() {
   return (
