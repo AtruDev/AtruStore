@@ -1,50 +1,43 @@
-truStore - E-commerce de Periféricos Gamer
-O AtruStore é uma Single Page Application (SPA) de e-commerce desenvolvida com React, focada em alta performance e interface responsiva. O projeto foi estruturado para demonstrar conceitos avançados de desenvolvimento front-end, como gestão de estado global, roteamento dinâmico e persistência de dados.
+AtruStore 🖱️
+O AtruStore é uma plataforma de e-commerce focada em periféricos de alta performance. Desenvolvido com uma arquitetura moderna em React, o projeto prioriza a experiência do utilizador, oferecendo uma navegação rápida, transições suaves e um gerenciamento de estado eficiente.
 
-Tecnologias e Ferramentas
-React + Vite: Ambiente de desenvolvimento otimizado com suporte a Fast Refresh.
+🚀 Tecnologias Utilizadas
+A stack tecnológica foi selecionada para garantir performance e escalabilidade:
 
-Tailwind CSS: Framework utilitário para estilização baseada em tokens, com foco em design responsivo e performance.
+React + Vite: Para um ambiente de desenvolvimento ultra-rápido e build otimizado.
 
-React Router: Gestão de rotas dinâmicas para navegação sem recarregamento de página.
+Tailwind CSS: Estilização utilitária para um design responsivo e efeitos de glassmorphism.
 
-Context API: Gestão de estado global para o carrinho de compras, evitando o problema de prop drilling.
+React Router: Gerenciamento de rotas SPA para navegação sem recarregamento de página.
 
-Lucide React: Conjunto de ícones vetoriais leves e customizáveis.
+Context API: Gestão de estado global do carrinho de compras.
 
-Sonner: Sistema de notificações (toasts) para feedback imediato das ações do utilizador.
+Lucide React: Ícones vetoriais modernos e leves.
 
-Arquitetura e Decisões Técnicas
-Estado Global e Persistência: A lógica do carrinho está centralizada no CartContext, que sincroniza automaticamente os dados com o LocalStorage. Isto garante que os itens do utilizador não sejam perdidos após a atualização da página ou encerramento da sessão.
+Sonner: Sistema de notificações dinâmicas para feedback de ações.
 
-Roteamento Dinâmico: Utilização de parâmetros de URL (/product/:id) para renderizar componentes de detalhe de forma dinâmica a partir de um único ponto de entrada.
+✨ Funcionalidades
+Catálogo Interativo: Listagem dinâmica com filtros por categoria em tempo real.
 
-Componentização: Divisão rigorosa entre componentes de UI reutilizáveis (components/) e páginas de contexto (pages/).
+Página de Detalhes: Roteamento dinâmico (/product/:id) para exibição técnica individualizada.
 
-Mock de Dados: Centralização da base de dados de produtos em um módulo JavaScript independente para facilitar a transição futura para uma API REST ou GraphQL.
+Carrinho de Compras: Gestão completa de itens com persistência automática via LocalStorage.
 
-Funcionalidades Implementadas
-Catálogo de produtos com filtragem dinâmica por categoria.
+Cálculo em Tempo Real: Atualização instantânea de valores totais e quantidades.
 
-Página de detalhes individualizada para cada produto.
+Design Responsivo: Interface totalmente adaptada para dispositivos móveis e desktops.
 
-Carrinho de compras lateral com atualização de quantidades em tempo real.
-
-Cálculo automático de subtotais e valor total da compra.
-
-Feedback visual de sucesso ao adicionar ou remover itens.
-
-Estrutura do Repositório
-Plaintext
+📂 Estrutura de Pastas
 src/
- ├── components/     # UI de uso geral (Navbar, Cards, Sidebar)
+ ├── components/     # Componentes de UI (Navbar, Hero, ProductCard)
  ├── context/        # Lógica de Estado Global (CartContext)
- ├── data/           # Estruturas de dados e mock de produtos
- ├── pages/          # Componentes de página (Home, ProductDetails)
- ├── public/         # Ativos estáticos e imagens dos produtos
- ├── App.jsx         # Definição de rotas e Providers
- └── main.jsx        # Ponto de entrada da aplicação
-Configuração do Ambiente de Desenvolvimento
+ ├── data/           # Base de dados mockada (products.js)
+ ├── pages/          # Telas principais (Home, ProductDetails)
+ ├── public/         # Ativos estáticos e imagens
+ ├── App.jsx         # Configuração de rotas e Providers
+ └── main.jsx        # Ponto de entrada do sistema
+
+🛠️ Como Executar o Projeto
 Clonar o repositório:
 
 Bash
@@ -53,17 +46,9 @@ Instalar as dependências:
 
 Bash
 npm install
-Executar em modo de desenvolvimento:
+Iniciar o servidor de desenvolvimento:
 
 Bash
 npm run dev
-Roadmap de Desenvolvimento
-Integração com gateway de pagamentos.
 
-Sistema de autenticação de utilizadores (Firebase/Supabase).
-
-Implementação de testes unitários e de integração com Vitest/Cypress.
-
-Otimização de SEO e acessibilidade (Aria-labels).
-
-Desenvolvido por AtruDev no âmbito de estudos em Engenharia de Computação.
+Desenvolvido por AtruDev | Projeto focado em performance e design.
