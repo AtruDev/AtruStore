@@ -1,4 +1,5 @@
-AtruStore 🖱️
+AtruStore
+
 O AtruStore é uma plataforma de e-commerce focada em periféricos de alta performance. Desenvolvido com uma arquitetura moderna em React, o projeto prioriza a experiência do utilizador, oferecendo uma navegação rápida, transições suaves e um gerenciamento de estado eficiente.
 
 🚀 Tecnologias Utilizadas
