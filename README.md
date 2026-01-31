@@ -1,42 +1,69 @@
-# AtruStore - Modern E-commerce SPA
+AtruStore - E-commerce de Periféricos Gamer
+O AtruStore é uma Single Page Application (SPA) de e-commerce desenvolvida com React, focada em alta performance e interface responsiva. O projeto foi estruturado para demonstrar conceitos avançados de desenvolvimento front-end, como gestão de estado global, roteamento dinâmico e persistência de dados.
 
-![alt text](image-1.png)
+Tecnologias e Ferramentas
+React + Vite: Ambiente de desenvolvimento otimizado com suporte a Fast Refresh.
 
-## 📖 Sobre o Projeto
+Tailwind CSS: Framework utilitário para estilização baseada em tokens, com foco em design responsivo e performance.
 
-O **AtruStore** é uma Single Page Application (SPA) de e-commerce focada em periféricos high-end e gadgets. O projeto foi desenvolvido para demonstrar competências em **Front-end Moderno**, focando em arquitetura limpa, componentização e performance.
+React Router: Gestão de rotas dinâmicas para navegação sem recarregamento de página.
 
-A aplicação simula uma experiência completa de compra, incluindo navegação por categorias, carrinho de compras funcional com persistência de dados e design responsivo.
+Context API: Gestão de estado global para o carrinho de compras, evitando o problema de prop drilling.
 
-## 🚀 Tecnologias & Ferramentas
+Lucide React: Conjunto de ícones vetoriais leves e customizáveis.
 
-* **Core:** [React](https://reactjs.org/) (Hooks & Context API)
-* **Build Tool:** [Vite](https://vitejs.dev/)
-* **Estilização:** [Tailwind CSS](https://tailwindcss.com/) (v3)
-* **Ícones:** [Lucide React](https://lucide.dev/)
-* **Gerenciamento de Estado:** Context API + LocalStorage Custom Hook
+Sonner: Sistema de notificações (toasts) para feedback imediato das ações do utilizador.
 
-## ✨ Funcionalidades
+Arquitetura e Decisões Técnicas
+Estado Global e Persistência: A lógica do carrinho está centralizada no CartContext, que sincroniza automaticamente os dados com o LocalStorage. Isto garante que os itens do utilizador não sejam perdidos após a atualização da página ou encerramento da sessão.
 
-* 🛒 **Carrinho Inteligente:** Adição, remoção e ajuste de quantidade com atualização em tempo real.
-* 💾 **Persistência de Dados:** O estado do carrinho é salvo no `LocalStorage`, mantendo os itens mesmo após atualizar a página.
-* 🔍 **Filtragem Dinâmica:** Filtro de produtos por categorias (Teclados, Mouses, etc.) sem recarregamento.
-* 📱 **Design Responsivo:** Layout fluido que funciona em Desktop e Mobile (Mobile-first approach).
-* 🎨 **Dark Mode UI:** Interface moderna com estética "Dark Neon".
+Roteamento Dinâmico: Utilização de parâmetros de URL (/product/:id) para renderizar componentes de detalhe de forma dinâmica a partir de um único ponto de entrada.
 
-## 🔧 Como Rodar Localmente
+Componentização: Divisão rigorosa entre componentes de UI reutilizáveis (components/) e páginas de contexto (pages/).
 
-Siga os passos abaixo para testar o projeto em sua máquina:
+Mock de Dados: Centralização da base de dados de produtos em um módulo JavaScript independente para facilitar a transição futura para uma API REST ou GraphQL.
 
-```bash
-# 1. Clone o repositório
-git clone [https://github.com/SEU-USUARIO/atrustore.git](https://github.com/SEU-USUARIO/atrustore.git)
+Funcionalidades Implementadas
+Catálogo de produtos com filtragem dinâmica por categoria.
 
-# 2. Entre na pasta do projeto
-cd atrustore
+Página de detalhes individualizada para cada produto.
 
-# 3. Instale as dependências
+Carrinho de compras lateral com atualização de quantidades em tempo real.
+
+Cálculo automático de subtotais e valor total da compra.
+
+Feedback visual de sucesso ao adicionar ou remover itens.
+
+Estrutura do Repositório
+Plaintext
+src/
+ ├── components/     # UI de uso geral (Navbar, Cards, Sidebar)
+ ├── context/        # Lógica de Estado Global (CartContext)
+ ├── data/           # Estruturas de dados e mock de produtos
+ ├── pages/          # Componentes de página (Home, ProductDetails)
+ ├── public/         # Ativos estáticos e imagens dos produtos
+ ├── App.jsx         # Definição de rotas e Providers
+ └── main.jsx        # Ponto de entrada da aplicação
+Configuração do Ambiente de Desenvolvimento
+Clonar o repositório:
+
+Bash
+git clone https://github.com/AtruDev/AtruStore.git
+Instalar as dependências:
+
+Bash
 npm install
+Executar em modo de desenvolvimento:
 
-# 4. Inicie o servidor de desenvolvimento
+Bash
 npm run dev
+Roadmap de Desenvolvimento
+Integração com gateway de pagamentos.
+
+Sistema de autenticação de utilizadores (Firebase/Supabase).
+
+Implementação de testes unitários e de integração com Vitest/Cypress.
+
+Otimização de SEO e acessibilidade (Aria-labels).
+
+Desenvolvido por AtruDev no âmbito de estudos em Engenharia de Computação.
