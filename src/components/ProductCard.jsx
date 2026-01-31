@@ -1,5 +1,5 @@
 import { Plus } from 'lucide-react';
-import { Link } from 'react-router-dom'; // <--- Importante
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 export const ProductCard = ({ product }) => {
@@ -7,7 +7,7 @@ export const ProductCard = ({ product }) => {
   
   return (
     <div className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all group flex flex-col">
-      {/* Link na Imagem */}
+
       <Link to={`/product/${product.id}`} className="h-48 overflow-hidden block">
         <img 
           src={product.image} 
@@ -19,7 +19,6 @@ export const ProductCard = ({ product }) => {
       <div className="p-5 flex flex-col flex-1">
         <span className="text-xs text-primary font-bold uppercase tracking-wider">{product.category}</span>
         
-        {/* Link no Título */}
         <Link to={`/product/${product.id}`}>
            <h3 className="text-white font-bold text-lg my-1 hover:text-primary transition-colors">{product.name}</h3>
         </Link>
