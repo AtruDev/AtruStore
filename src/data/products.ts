@@ -1,4 +1,7 @@
-export const products = [
+// src/data/products.ts
+import { Product } from "../@types/store";
+
+export const products: Product[] = [
   { id: 1, name: "Teclado Mecânico Atru Pro", price: 459.90, category: "Periféricos", image: "/imgs/Teclado.png" },
   { id: 2, name: "Mouse Gamer Wireless", price: 229.00, category: "Periféricos", image: "/imgs/Mouse.png" },
   { id: 3, name: "Monitor UltraWide 34'", price: 2899.00, category: "Monitores", image: "/imgs/Monitor.png" },

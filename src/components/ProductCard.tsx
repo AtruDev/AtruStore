@@ -1,13 +1,18 @@
+
 import { Plus } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { Product } from '../@types/store';
 
-export const ProductCard = ({ product }) => {
+interface ProductCardProps {
+  product: Product;
+}
+
+export const ProductCard = ({ product }: ProductCardProps) => {
   const { addToCart } = useCart();
   
   return (
     <div className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all group flex flex-col">
-
       <Link to={`/product/${product.id}`} className="h-48 overflow-hidden block">
         <img 
           src={product.image} 

@@ -1,0 +1,29 @@
+import { ArrowRight } from 'lucide-react';
+
+export const Hero = () => {
+  const handleScrollToShop = () => {
+    const shopSection = document.getElementById('shop');
+    // Optional Chaining (?.) previne erro caso o elemento não exista
+    shopSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <section className="pt-32 pb-16 px-4 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-slate-950 to-slate-950 text-center">
+      <div className="max-w-4xl mx-auto">
+        <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block animate-fade-in">Novidades 2024</span>
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+          Setup <span className="bg-gradient-to-r from-primary to-emerald-400 bg-clip-text text-transparent">Profissional</span>
+        </h1>
+        <p className="text-slate-400 max-w-2xl mx-auto mb-8 text-lg leading-relaxed">
+          Eleve sua produtividade e gameplay com equipamentos de alta performance e design minimalista.
+        </p>
+        <button 
+          onClick={handleScrollToShop} 
+          className="bg-primary hover:bg-emerald-600 text-slate-900 px-8 py-3 rounded-full font-bold inline-flex items-center gap-2 transition-all hover:scale-105 shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+        >
+          Ver Produtos <ArrowRight size={18}/>
+        </button>
+      </div>
+    </section>
+  );
+};

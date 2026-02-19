@@ -10,14 +10,12 @@ export default function App() {
   return (
     <BrowserRouter>
       <CartProvider>
-        <div className="min-h-screen bg-slate-950 font-sans">
+        <div className="min-h-screen bg-slate-950 font-sans text-slate-200 selection:bg-primary selection:text-slate-900">
           <Toaster position="bottom-right" theme="dark" richColors />
 
-          {/* Navbar e Sidebar aparecem em todas as telas */}
           <Navbar />
           <CartSidebar />
 
-          {/* Aqui é onde a mágica das páginas acontece */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product/:id" element={<ProductDetails />} />

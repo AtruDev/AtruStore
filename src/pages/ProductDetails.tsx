@@ -4,15 +4,20 @@ import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
 
 export const ProductDetails = () => {
-  const { id } = useParams();
+
+  const { id } = useParams<{ id: string }>();
   const { addToCart } = useCart();
 
   const product = products.find((p) => p.id === Number(id));
 
+
   if (!product) {
     return (
       <div className="text-white text-center py-20">
-        Produto não encontrado.
+        <h2 className="text-2xl font-bold">Produto não encontrado.</h2>
+        <Link to="/" className="text-primary hover:underline mt-4 block">
+          Voltar para a home
+        </Link>
       </div>
     );
   }
