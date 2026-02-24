@@ -1,26 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+@font-face {
+  font-family: 'Oughter';
+  src: url('/fonts/Oughter-Bold.woff2') format('woff2'),
+       url('/fonts/Oughter-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap; 
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer utilities {
-  .animate-slide-in {
-    animation: slideIn 0.3s ease-out forwards;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-}

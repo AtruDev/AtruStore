@@ -1,6 +1,6 @@
 import { ShoppingBag, Zap } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { Link } from 'react-router-dom'; // Melhoria: Usar Link evita refresh da página
+import { Link } from 'react-router-dom'; // 
 
 export const Navbar = () => {
   const { cartCount, setIsSidebarOpen } = useCart();
@@ -8,8 +8,9 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-white font-bold text-xl hover:text-primary transition-colors">
-          <Zap className="text-primary w-6 h-6" /> AtruStore
+        <Link to="/" className="flex items-center gap-2 text-white hover:text-primary transition-colors">
+          <Zap className="text-primary w-6 h-6" />   
+          <span className="font-display text-2xl tracking-wider pt-1">ATRUSTORE</span>
         </Link>
         
         <button 

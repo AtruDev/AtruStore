@@ -10,7 +10,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <CartProvider>
-        <div className="min-h-screen bg-slate-950 font-sans text-slate-200 selection:bg-primary selection:text-slate-900">
+        <div className="min-h-screen bg-background font-sans text-slate-200 selection:bg-primary selection:text-background">
           <Toaster position="bottom-right" theme="dark" richColors />
 
           <Navbar />
