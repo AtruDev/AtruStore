@@ -9,9 +9,6 @@ export const Hero = () => {
   return (
     <section className="pt-32 pb-16 px-4 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-slate-950 to-slate-950 text-center">
       <div className="max-w-4xl mx-auto">
-        <span className="text-primary font-bold tracking-widest text-xs uppercase mb-4 block animate-fade-in">
-          Novidades 2024
-        </span>
         <h1 className="font-display text-5xl md:text-7xl font-bold mb-6 text-white leading-tight tracking-wide">
           SETUP <span className="text-primary">PROFISSIONAL</span>
         </h1>
