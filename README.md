@@ -68,4 +68,4 @@ npm run dev
 
 ---
 
-<p align="center">Desenvolvido com sofisticação e 💚 por <strong><a href="https://github.com/AtruDev" target="_blank">AtruDev</a></strong> e a IA Antigravity.</p>
+<p align="center">Desenvolvido com sofisticação por <strong><a href="https://github.com/AtruDev" target="_blank">AtruDev</a></strong></p>
