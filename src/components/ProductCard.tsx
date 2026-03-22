@@ -16,9 +16,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   
   return (
     <motion.div 
-      whileHover={{ y: -5 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors group flex flex-col shadow-lg hover:shadow-[0_0_20px_rgba(172,200,162,0.2)]"
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        show: { opacity: 1, y: 0 }
+      }}
+      whileHover={{ y: -8, boxShadow: '0px 15px 35px rgba(172, 200, 162, 0.15)' }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className="relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors group flex flex-col will-change-transform"
     >
       <button 
         onClick={(e) => { e.preventDefault(); toggleWishlist(product.id); }}

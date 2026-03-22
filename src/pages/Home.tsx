@@ -88,11 +88,22 @@ export const Home = () => {
           ))}
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: { staggerChildren: 0.1 }
+            }
+          }}
+          initial="hidden"
+          animate="show"
+        >
           {filtered.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
-        </div>
+        </motion.div>
       </section>
     </motion.main>
   );
