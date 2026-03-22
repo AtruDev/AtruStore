@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Hero } from "../components/Hero";
 import { ProductCard } from "../components/ProductCard";
+import { ProductCardSkeleton } from "../components/ProductCardSkeleton";
 import { products } from "../data/products";
 import { Category } from "../@types/store";
 import { Search, SlidersHorizontal } from "lucide-react";
@@ -11,6 +12,14 @@ export const Home = () => {
   const [filter, setFilter] = useState<Category | "Todos">("Todos");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("news");
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // 1.5s mock fetch delay
+    return () => clearTimeout(timer);
+  }, []);
 
   const categories = ["Todos", ...new Set(products.map((p) => p.category))];
 
@@ -88,22 +97,30 @@ export const Home = () => {
           ))}
         </div>
         
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={{
-            hidden: { opacity: 0 },
-            show: {
-              opacity: 1,
-              transition: { staggerChildren: 0.1 }
-            }
-          }}
-          initial="hidden"
-          animate="show"
-        >
-          {filtered.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </motion.div>
+        {isLoading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[...Array(6)].map((_, i) => (
+              <ProductCardSkeleton key={i} />
+            ))}
+          </div>
+        ) : (
+          <motion.div 
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.1 }
+              }
+            }}
+            initial="hidden"
+            animate="show"
+          >
+            {filtered.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </motion.div>
+        )}
       </section>
     </motion.main>
   );
