@@ -1,6 +1,8 @@
-import { Plus } from 'lucide-react';
+import { Plus, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
 import { Product } from '../@types/store';
 
 interface ProductCardProps {
@@ -9,9 +11,22 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   const { addToCart } = useCart();
+  const { toggleWishlist, isInWishlist } = useWishlist();
+  const isWishlisted = isInWishlist(product.id);
   
   return (
-    <div className="bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 group flex flex-col shadow-lg hover:shadow-[0_0_15px_rgba(172,200,162,0.15)]">
+    <motion.div 
+      whileHover={{ y: -5 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="relative bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-colors group flex flex-col shadow-lg hover:shadow-[0_0_20px_rgba(172,200,162,0.2)]"
+    >
+      <button 
+        onClick={(e) => { e.preventDefault(); toggleWishlist(product.id); }}
+        className="absolute top-3 right-3 z-10 p-2 bg-slate-900/60 backdrop-blur-md rounded-full text-slate-300 hover:text-red-400 hover:bg-slate-900 transition-all opacity-0 group-hover:opacity-100 sm:opacity-100"
+      >
+        <Heart size={18} className={isWishlisted ? "fill-red-400 text-red-400" : ""} />
+      </button>
+
       <Link to={`/product/${product.id}`} className="h-56 overflow-hidden block bg-black/20">
         <img 
           src={product.image} 
@@ -44,6 +59,6 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

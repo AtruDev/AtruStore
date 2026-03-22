@@ -21,4 +21,5 @@ export interface CartContextData {
   cartTotal: number;
   isSidebarOpen: boolean;
   setIsSidebarOpen: (isOpen: boolean) => void;
+  clearCart: () => void;
 }

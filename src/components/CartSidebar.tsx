@@ -1,4 +1,5 @@
 import { X, Trash2, Minus, Plus } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 export const CartSidebar = () => {
@@ -104,12 +105,17 @@ export const CartSidebar = () => {
             <span>Total</span>
             <span>{formatMoney(cartTotal)}</span>
           </div>
-          <button
-            disabled={cart.length === 0}
-            className="w-full bg-primary hover:bg-emerald-600 disabled:bg-surface disabled:text-slate-500 disabled:cursor-not-allowed text-slate-900 font-bold py-4 rounded-xl transition-all active:scale-95 shadow-lg shadow-primary/20"
+          <Link
+            to="/checkout"
+            onClick={() => setIsSidebarOpen(false)}
+            className={`w-full block text-center font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20 ${
+              cart.length === 0 
+              ? 'bg-surface text-slate-500 pointer-events-none' 
+              : 'bg-primary hover:bg-emerald-600 text-slate-900 active:scale-95'
+            }`}
           >
             Finalizar Compra
-          </button>
+          </Link>
         </div>
       </div>
     </div>
