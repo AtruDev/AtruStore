@@ -16,7 +16,16 @@
 @layer base {
   body {
     position: relative;
+    @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+  }
+  
+  .dark body {
     background-color: theme('colors.background');
+    @apply text-slate-200;
+  }
+
+  *:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-transparent outline-none;
   }
 
   body::before {

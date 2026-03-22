@@ -8,24 +8,25 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative pt-32 pb-24 px-4 overflow-hidden text-center bg-slate-950">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-slate-950 to-slate-950 opacity-80" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 blur-[90px] rounded-full pointer-events-none transform-gpu" />
+    <section className="relative pt-32 pb-24 px-4 overflow-hidden text-center bg-slate-100 dark:bg-slate-950 transition-colors duration-300">
+      {/* Dynamic Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-200 via-slate-100 to-slate-100 dark:from-slate-800 dark:via-slate-950 dark:to-slate-950 opacity-80 transition-colors duration-300" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 dark:bg-primary/10 blur-[90px] rounded-full pointer-events-none transform-gpu" />
       
       <div className="relative max-w-4xl mx-auto z-10">
         <motion.h1 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-display text-5xl md:text-7xl font-bold mb-6 text-white leading-tight tracking-wide"
+          className="font-display text-5xl md:text-7xl font-bold mb-6 text-slate-900 dark:text-white leading-tight tracking-wide transition-colors"
         >
-          SETUP <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">PROFISSIONAL</span>
+          SETUP <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-400 dark:from-primary dark:to-emerald-400">PROFISSIONAL</span>
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-slate-400 max-w-2xl mx-auto mb-10 text-lg leading-relaxed font-sans"
+          className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 text-lg leading-relaxed font-sans transition-colors"
         >
           Performance e design tático para o seu workspace.
         </motion.p>

@@ -52,26 +52,26 @@ export const Home = () => {
       <Hero />
       <section id="shop" className="max-w-7xl mx-auto px-4 py-20">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
-          <h2 className="text-3xl font-bold text-white hidden md:block">Loja</h2>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white hidden md:block">Loja</h2>
           <div className="flex-1 flex flex-col sm:flex-row gap-4 w-full md:max-w-2xl justify-end">
              {/* Search */}
              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" size={18} />
                 <input 
                   type="text" 
                   placeholder="Buscar produtos..." 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-700 text-white pl-10 pr-4 py-2.5 rounded-xl focus:outline-none focus:border-primary transition-colors"
+                  className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white pl-10 pr-4 py-2.5 rounded-xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus:border-primary transition-colors"
                 />
              </div>
              {/* Sort */}
-             <div className="flex items-center gap-2 bg-slate-900 border border-slate-700 rounded-xl px-3 py-1 w-full sm:w-auto">
-                <SlidersHorizontal className="text-slate-400" size={18} />
+             <div className="flex items-center gap-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1 w-full sm:w-auto focus-within:ring-2 focus-within:ring-primary">
+                <SlidersHorizontal className="text-slate-500 dark:text-slate-400" size={18} />
                 <select 
                   value={sortOption}
                   onChange={(e) => setSortOption(e.target.value)}
-                  className="bg-transparent text-white outline-none w-full py-1.5 cursor-pointer text-sm"
+                  className="bg-transparent text-slate-900 dark:text-white outline-none w-full py-1.5 cursor-pointer text-sm"
                 >
                   <option value="news">Recentes</option>
                   <option value="price-asc">Menor Preço</option>
@@ -86,10 +86,10 @@ export const Home = () => {
             <button
               key={cat}
               onClick={() => setFilter(cat as Category | "Todos")}
-              className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-bold transition-all focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none ${
                 filter === cat 
                   ? "bg-primary text-slate-900 shadow-[0_0_15px_rgba(172,200,162,0.4)]" 
-                  : "bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700"
+                  : "bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-300 dark:hover:bg-slate-700"
               }`}
             >
               {cat}

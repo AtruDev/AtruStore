@@ -23,10 +23,10 @@ export const TechStackWidget = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-16 left-0 bg-slate-900 border border-slate-700/50 rounded-2xl shadow-2xl p-5 w-72 mb-2 backdrop-blur-xl"
+            className="absolute bottom-16 left-0 bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-700/50 rounded-2xl shadow-2xl p-5 w-72 mb-2 backdrop-blur-xl transition-colors duration-300"
           >
             <div className="flex justify-between items-center mb-4">
-              <h4 className="text-white font-bold font-display tracking-wider">
+              <h4 className="text-slate-900 dark:text-white font-bold font-display tracking-wider">
                 Tech Stack 🚀
               </h4>
               <button 
@@ -38,7 +38,7 @@ export const TechStackWidget = () => {
               </button>
             </div>
             
-            <p className="text-sm text-slate-400 mb-4 font-sans leading-relaxed">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 font-sans leading-relaxed transition-colors">
               Este projeto de portfólio foi construído com as seguintes tecnologias:
             </p>
             
@@ -60,7 +60,7 @@ export const TechStackWidget = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-slate-800 border border-slate-600 hover:border-primary text-primary p-3.5 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-colors group flex items-center justify-center opacity-80 hover:opacity-100"
+        className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 hover:border-primary dark:hover:border-primary text-primary p-3.5 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(0,0,0,0.5)] transition-colors group flex items-center justify-center opacity-80 hover:opacity-100 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
         aria-label="Sobre o Projeto"
       >
         <Code size={24} className={isOpen ? "rotate-90 transition-transform" : "transition-transform"} />

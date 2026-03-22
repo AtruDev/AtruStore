@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { WishlistProvider } from "./context/WishlistContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import { Toaster } from "sonner";
 import { CartProvider } from "./context/CartContext";
 import { Navbar } from "./components/Navbar";
@@ -30,10 +31,11 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <WishlistProvider>
-        <CartProvider>
-          <div className="min-h-screen bg-transparent font-sans text-slate-200 selection:bg-primary selection:text-background pb-16 md:pb-0">
-          <Toaster position="bottom-right" theme="dark" richColors />
+      <ThemeProvider>
+        <WishlistProvider>
+          <CartProvider>
+            <div className="min-h-screen bg-slate-50 dark:bg-[#1A2517] text-slate-900 dark:text-slate-200 transition-colors duration-300 font-sans selection:bg-primary selection:text-background pb-16 md:pb-0">
+            <Toaster position="bottom-right" theme="dark" richColors />
 
           <Navbar />
           <CartSidebar />
@@ -43,8 +45,9 @@ export default function App() {
           <TechStackWidget />
             <BottomNav />
           </div>
-        </CartProvider>
-      </WishlistProvider>
+          </CartProvider>
+        </WishlistProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }
