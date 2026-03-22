@@ -10,6 +10,8 @@ import { Home } from "./pages/Home";
 import { ProductDetails } from "./pages/ProductDetails";
 import { Wishlist } from "./pages/Wishlist";
 import { Checkout } from "./pages/Checkout";
+import { Footer } from "./components/Footer";
+import { TechStackWidget } from "./components/TechStackWidget";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -37,6 +39,8 @@ export default function App() {
           <CartSidebar />
 
           <AnimatedRoutes />
+          <Footer />
+          <TechStackWidget />
             <BottomNav />
           </div>
         </CartProvider>
