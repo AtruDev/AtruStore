@@ -8,8 +8,6 @@
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
 </p>
 
-> **[🔗 Acesse o Demo Ao Vivo do Projeto na Vercel](#)** *(Substitua este texto local com o link real da Vercel!)*
-
 O **AtruStore** é um e-commerce especializado em hardware e periféricos de alto nível, desenvolvido como um case de **Portfólio Front-end Premium**. O projeto foi construído focando em performance de renderização, imersão visual e excelência técnica arquitetural, utilizando o que há de mais moderno no ecossistema React.
 
 <img width="100%" alt="AtruStore Hero" src="https://github.com/user-attachments/assets/360463b2-8490-415b-9008-09aedff14536" />  
