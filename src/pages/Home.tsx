@@ -5,7 +5,8 @@ import { ProductCard } from "../components/ProductCard";
 import { ProductCardSkeleton } from "../components/ProductCardSkeleton";
 import { products } from "../data/products";
 import { Category } from "../@types/store";
-import { Search, SlidersHorizontal } from "lucide-react";
+import { Search, SlidersHorizontal, ChevronDown } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
 
 export const Home = () => {
 
@@ -13,6 +14,13 @@ export const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("news");
   const [isLoading, setIsLoading] = useState(true);
+  const [isSortOpen, setIsSortOpen] = useState(false);
+
+  const sortOptionsMap = {
+    "news": "Recentes",
+    "price-asc": "Menor Preço",
+    "price-desc": "Maior Preço"
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -65,18 +73,49 @@ export const Home = () => {
                   className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white pl-10 pr-4 py-2.5 rounded-xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus:border-primary transition-colors"
                 />
              </div>
-             {/* Sort */}
-             <div className="flex items-center gap-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-3 py-1 w-full sm:w-auto focus-within:ring-2 focus-within:ring-primary">
-                <SlidersHorizontal className="text-slate-500 dark:text-slate-400" size={18} />
-                <select 
-                  value={sortOption}
-                  onChange={(e) => setSortOption(e.target.value)}
-                  className="bg-transparent text-slate-900 dark:text-white outline-none w-full py-1.5 cursor-pointer text-sm"
+             {/* Custom Sort Dropdown */}
+             <div className="relative">
+                <button 
+                  onClick={() => setIsSortOpen(!isSortOpen)}
+                  className="flex items-center justify-between gap-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 w-full sm:w-48 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-colors"
                 >
-                  <option value="news">Recentes</option>
-                  <option value="price-asc">Menor Preço</option>
-                  <option value="price-desc">Maior Preço</option>
-                </select>
+                  <div className="flex items-center gap-2">
+                    <SlidersHorizontal className="text-slate-500 dark:text-slate-400" size={18} />
+                    <span className="text-slate-900 dark:text-white text-sm font-medium">
+                      {sortOptionsMap[sortOption as keyof typeof sortOptionsMap]}
+                    </span>
+                  </div>
+                  <ChevronDown className={`text-slate-500 dark:text-slate-400 w-4 h-4 transition-transform ${isSortOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                <AnimatePresence>
+                  {isSortOpen && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute right-0 top-full mt-2 w-full sm:w-48 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl overflow-hidden z-[60]"
+                    >
+                      {Object.entries(sortOptionsMap).map(([key, label]) => (
+                        <button
+                          key={key}
+                          onClick={() => {
+                            setSortOption(key);
+                            setIsSortOpen(false);
+                          }}
+                          className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                            sortOption === key 
+                              ? "bg-primary/10 text-primary dark:text-primary font-bold" 
+                              : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
+                          }`}
+                        >
+                          {label}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
              </div>
           </div>
         </div>
