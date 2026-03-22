@@ -10,8 +10,8 @@ export const Hero = () => {
   return (
     <section className="relative pt-32 pb-24 px-4 overflow-hidden text-center bg-slate-100 dark:bg-slate-950 transition-colors duration-300">
       {/* Dynamic Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-200 via-slate-100 to-slate-100 dark:from-slate-800 dark:via-slate-950 dark:to-slate-950 opacity-80 transition-colors duration-300" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 dark:bg-primary/10 blur-[90px] rounded-full pointer-events-none transform-gpu" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-200 via-slate-100 to-slate-100 dark:from-slate-800 dark:via-slate-950 dark:to-slate-950 opacity-80" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/20 dark:bg-primary/10 blur-3xl rounded-full pointer-events-none transform-gpu will-change-transform" />
       
       <div className="relative max-w-4xl mx-auto z-10">
         <motion.h1 

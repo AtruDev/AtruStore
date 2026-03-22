@@ -39,6 +39,8 @@
     z-index: -1;
     border-radius: 50%;
     pointer-events: none;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   body::after {
@@ -52,5 +54,7 @@
     z-index: -1;
     border-radius: 50%;
     pointer-events: none;
+    will-change: transform;
+    transform: translateZ(0);
   }
 }
