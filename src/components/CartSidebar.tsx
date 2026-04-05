@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Trash2, Minus, Plus } from "lucide-react";
+import { X, Trash, Minus, Plus } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
@@ -98,7 +98,7 @@ export const CartSidebar = () => {
                           onClick={() => removeFromCart(item.id)}
                           className="text-red-500 dark:text-red-400 hover:text-red-600 dark:hover:text-red-300 ml-auto p-2 hover:bg-red-50 dark:hover:bg-red-400/10 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:outline-none"
                         >
-                          <Trash2 size={16} />
+                          <Trash size={16} />
                         </button>
                       </div>
                     </div>

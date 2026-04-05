@@ -13,10 +13,49 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/10 dark:bg-black/20 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)];
+  }
+
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.015;
+  }
+}
+
 @layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-800 rounded-full border-[1px] border-transparent bg-clip-padding;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary dark:bg-primary border-none;
+  }
+
   body {
     position: relative;
-    @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+    @apply bg-[#F9FAFB] text-slate-900 transition-colors duration-500;
   }
   
   .dark body {
@@ -25,17 +64,17 @@
   }
 
   *:focus-visible {
-    @apply ring-2 ring-primary ring-offset-2 ring-offset-transparent outline-none;
+    @apply ring-2 ring-primary/80 ring-offset-1 ring-offset-background outline-none transition-shadow;
   }
 
   body::before {
     content: "";
     position: fixed;
-    top: -15%;
-    left: -10%;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(circle, rgba(172, 200, 162, 0.06) 0%, transparent 60%);
+    top: -20%;
+    left: -15%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(172, 200, 162, 0.08) 0%, transparent 70%);
     z-index: -1;
     border-radius: 50%;
     pointer-events: none;
@@ -48,13 +87,13 @@
     position: fixed;
     bottom: -15%;
     right: -10%;
-    width: 60vw;
-    height: 60vw;
-    background: radial-gradient(circle, rgba(172, 200, 162, 0.04) 0%, transparent 60%);
+    width: 70vw;
+    height: 70vw;
+    background: radial-gradient(circle, rgba(172, 200, 162, 0.05) 0%, transparent 65%);
     z-index: -1;
     border-radius: 50%;
     pointer-events: none;
     will-change: transform;
     transform: translateZ(0);
   }
-}
+}

@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Check, ShoppingBag } from "lucide-react";
+import { ArrowLeft, Check, Handbag } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
@@ -81,7 +81,7 @@ export const ProductDetails = () => {
               onClick={() => addToCart(product)}
               className="flex-1 bg-primary hover:bg-emerald-600 text-slate-900 font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-transform active:scale-95"
             >
-              <ShoppingBag /> Adicionar ao Carrinho
+              <Handbag size={20} /> Adicionar ao Carrinho
             </button>
           </div>
 

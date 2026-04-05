@@ -1,4 +1,4 @@
-import { Plus, Heart } from 'lucide-react';
+import { Plus, Heart } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
@@ -17,51 +17,61 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <motion.div 
       variants={{
-        hidden: { opacity: 0, y: 20 },
+        hidden: { opacity: 0, y: 30 },
         show: { opacity: 1, y: 0 }
       }}
-      whileHover={{ y: -8, boxShadow: '0px 15px 35px rgba(172, 200, 162, 0.15)' }}
-      transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className="relative bg-white dark:bg-surface rounded-2xl overflow-hidden border border-slate-200 dark:border-white/5 hover:border-primary/50 transition-colors group flex flex-col will-change-transform focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      className="relative group flex flex-col will-change-transform outline-none"
     >
-      <button 
-        onClick={(e) => { e.preventDefault(); toggleWishlist(product.id); }}
-        className="absolute top-3 right-3 z-10 p-2 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md rounded-full text-slate-400 dark:text-slate-300 hover:text-red-400 hover:bg-white dark:hover:bg-slate-900 transition-all opacity-0 group-hover:opacity-100 sm:opacity-100 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
-      >
-        <Heart size={18} className={isWishlisted ? "fill-red-400 text-red-400" : ""} />
-      </button>
+      {/* Image Container (The only elevated part) */}
+      <div className="relative rounded-[2rem] overflow-hidden bg-slate-100 dark:bg-black/20 aspect-[4/5] mb-6 flex items-center justify-center">
+        
+        <button 
+          onClick={(e) => { e.preventDefault(); toggleWishlist(product.id); }}
+          className="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center bg-white/80 dark:bg-black/60 backdrop-blur-xl rounded-full text-slate-500 dark:text-slate-400 hover:text-red-500 hover:bg-white dark:hover:bg-slate-900 transition-all opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 active:scale-90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+        >
+          <Heart size={20} weight={isWishlisted ? "fill" : "regular"} className={isWishlisted ? "text-red-500" : ""} />
+        </button>
 
-      <Link to={`/product/${product.id}`} className="h-56 overflow-hidden block bg-black/20">
-        <img 
+        <Link to={`/product/${product.id}`} className="absolute inset-0 z-10 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none" aria-label={`View ${product.name}`} />
+        
+        <motion.img 
           src={product.image} 
           alt={product.name}
-          className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" 
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal opacity-90 group-hover:opacity-100" 
         />
-      </Link>
+      </div>
       
-      <div className="p-6 flex flex-col flex-1">
-        <span className="text-xs text-primary font-bold uppercase tracking-widest mb-2">
-          {product.category}
-        </span>
-        
-        <Link to={`/product/${product.id}`} className="focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded-lg">
-           <h3 className="font-display text-slate-900 dark:text-white text-2xl my-1 hover:text-primary transition-colors tracking-wide uppercase">
-             {product.name}
-           </h3>
-        </Link>
-        
-        <div className="flex justify-between items-center mt-auto pt-6">
-          <span className="text-slate-900 dark:text-white font-bold text-2xl font-sans">
-            {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.price)}
-          </span>
+      {/* Detached Labels (Gallery Style) */}
+      <div className="flex flex-col px-2">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <span className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.15em] mb-2 block">
+              {product.category}
+            </span>
+            
+            <Link to={`/product/${product.id}`} className="inline-block focus-visible:ring-2 focus-visible:ring-primary outline-none rounded-md">
+               <h3 className="font-display text-slate-900 dark:text-white text-xl md:text-2xl hover:text-primary transition-colors tracking-wide leading-tight">
+                 {product.name}
+               </h3>
+            </Link>
+          </div>
+          
           <button 
-            onClick={() => addToCart(product)} 
-            className="p-3 bg-primary/10 border border-primary/20 hover:bg-primary text-primary hover:text-white dark:hover:text-background rounded-xl transition-all active:scale-95 shadow-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+            onClick={(e) => { e.preventDefault(); addToCart(product); }}
+            className="shrink-0 w-12 h-12 flex items-center justify-center bg-transparent border border-slate-200 dark:border-white/10 hover:border-primary hover:bg-primary text-slate-600 dark:text-slate-300 hover:text-slate-950 rounded-full transition-all active:scale-90 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
             aria-label="Adicionar ao carrinho"
           >
-            <Plus size={24} />
+            <Plus size={20} weight="bold" />
           </button>
         </div>
+        
+        <span className="text-slate-900 dark:text-slate-300 font-medium font-mono text-lg mt-3">
+          {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.price)}
+        </span>
       </div>
     </motion.div>
   );

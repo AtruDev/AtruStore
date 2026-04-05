@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Hero } from "../components/Hero";
+import { ShopTheSetup } from "../components/ShopTheSetup";
 import { ProductCard } from "../components/ProductCard";
 import { ProductCardSkeleton } from "../components/ProductCardSkeleton";
 import { products } from "../data/products";
 import { Category } from "../@types/store";
-import { Search, SlidersHorizontal, ChevronDown } from "lucide-react";
-import { AnimatePresence } from "framer-motion";
+import { MagnifyingGlass, FadersHorizontal, CaretDown } from "@phosphor-icons/react";
 
 export const Home = () => {
-
   const [filter, setFilter] = useState<Category | "Todos">("Todos");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState("news");
@@ -25,7 +24,7 @@ export const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500); // 1.5s mock fetch delay
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -33,17 +32,14 @@ export const Home = () => {
 
   let filtered = [...products];
 
-  // Category Filter
   if (filter !== "Todos") {
     filtered = filtered.filter((p) => p.category === filter);
   }
 
-  // Search Filter
   if (searchQuery) {
     filtered = filtered.filter((p) => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
   }
 
-  // Sorting
   if (sortOption === "price-asc") {
     filtered.sort((a, b) => a.price - b.price);
   } else if (sortOption === "price-desc") {
@@ -52,50 +48,56 @@ export const Home = () => {
 
   return (
     <motion.main
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.6 }}
+      className="relative z-10"
     >
       <Hero />
-      <section id="shop" className="max-w-7xl mx-auto px-4 py-20">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white hidden md:block">Loja</h2>
-          <div className="flex-1 flex flex-col sm:flex-row gap-4 w-full md:max-w-2xl justify-end">
+      <ShopTheSetup />
+      <section id="shop" className="max-w-[1400px] mx-auto px-4 py-32">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white tracking-tight">Equipamentos</h2>
+            <p className="text-slate-500 mt-2 font-mono text-sm uppercase tracking-widest">{filtered.length} itens encontrados</p>
+          </div>
+          
+          <div className="flex-1 flex flex-col sm:flex-row gap-4 w-full md:max-w-xl justify-end">
              {/* Search */}
-             <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" size={18} />
+             <div className="relative flex-1 group">
+                <MagnifyingGlass weight="bold" className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors" size={18} />
                 <input 
                   type="text" 
                   placeholder="Buscar produtos..." 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white pl-10 pr-4 py-2.5 rounded-xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus:border-primary transition-colors"
+                  className="w-full bg-slate-100 dark:bg-black/20 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white pl-12 pr-4 py-3.5 rounded-2xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus:border-primary transition-all placeholder:text-slate-400"
                 />
              </div>
              {/* Custom Sort Dropdown */}
              <div className="relative">
                 <button 
                   onClick={() => setIsSortOpen(!isSortOpen)}
-                  className="flex items-center justify-between gap-2 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2.5 w-full sm:w-48 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none transition-colors"
+                  className="flex items-center justify-between gap-3 bg-slate-100 dark:bg-black/20 border border-slate-200 dark:border-white/10 rounded-2xl px-5 py-3.5 w-full sm:w-56 focus-visible:ring-2 focus-visible:ring-primary outline-none transition-all hover:bg-slate-200 dark:hover:bg-white/5"
                 >
                   <div className="flex items-center gap-2">
-                    <SlidersHorizontal className="text-slate-500 dark:text-slate-400" size={18} />
-                    <span className="text-slate-900 dark:text-white text-sm font-medium">
+                    <FadersHorizontal weight="bold" className="text-slate-500" size={18} />
+                    <span className="text-slate-900 dark:text-white text-sm font-bold">
                       {sortOptionsMap[sortOption as keyof typeof sortOptionsMap]}
                     </span>
                   </div>
-                  <ChevronDown className={`text-slate-500 dark:text-slate-400 w-4 h-4 transition-transform ${isSortOpen ? "rotate-180" : ""}`} />
+                  <CaretDown weight="bold" className={`text-slate-500 w-4 h-4 transition-transform duration-300 ${isSortOpen ? "rotate-180" : ""}`} />
                 </button>
 
                 <AnimatePresence>
                   {isSortOpen && (
                     <motion.div 
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute right-0 top-full mt-2 w-full sm:w-48 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl overflow-hidden z-[60]"
+                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="absolute right-0 top-[calc(100%+8px)] w-full sm:w-56 p-2 bg-white dark:bg-[#1A2517] border border-slate-200 dark:border-white/10 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] z-[60]"
                     >
                       {Object.entries(sortOptionsMap).map(([key, label]) => (
                         <button
@@ -104,10 +106,10 @@ export const Home = () => {
                             setSortOption(key);
                             setIsSortOpen(false);
                           }}
-                          className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                          className={`w-full text-left px-4 py-2.5 text-sm rounded-xl font-medium transition-colors ${
                             sortOption === key 
-                              ? "bg-primary/10 text-primary dark:text-primary font-bold" 
-                              : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white"
+                              ? "bg-primary text-slate-950 font-bold" 
+                              : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5"
                           }`}
                         >
                           {label}
@@ -120,15 +122,16 @@ export const Home = () => {
           </div>
         </div>
         
-        <div className="flex gap-2 flex-wrap mb-10">
+        {/* Categories (Masonry / Grid filtering approach) */}
+        <div className="flex gap-2 flex-wrap mb-16">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat as Category | "Todos")}
-              className={`px-4 py-2 rounded-full text-sm font-bold transition-all focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none ${
+              className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all outline-none focus-visible:ring-2 focus-visible:ring-primary ${
                 filter === cat 
-                  ? "bg-primary text-slate-900 shadow-[0_0_15px_rgba(172,200,162,0.4)]" 
-                  : "bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-300 dark:hover:bg-slate-700"
+                  ? "bg-slate-900 dark:bg-white text-white dark:text-slate-900" 
+                  : "bg-transparent border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 hover:border-slate-400 dark:hover:border-white/30"
               }`}
             >
               {cat}
@@ -137,23 +140,23 @@ export const Home = () => {
         </div>
         
         {isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
             {[...Array(6)].map((_, i) => (
               <ProductCardSkeleton key={i} />
             ))}
           </div>
         ) : (
           <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16"
             variants={{
-              hidden: { opacity: 0 },
+              hidden: {},
               show: {
-                opacity: 1,
                 transition: { staggerChildren: 0.1 }
               }
             }}
             initial="hidden"
-            animate="show"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
           >
             {filtered.map((p) => (
               <ProductCard key={p.id} product={p} />

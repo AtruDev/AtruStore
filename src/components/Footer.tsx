@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { GithubLogo, LinkedinLogo, EnvelopeSimple } from '@phosphor-icons/react';
 
 export const Footer = () => {
   return (
@@ -28,7 +28,7 @@ export const Footer = () => {
               className="p-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-600 hover:bg-white dark:hover:bg-slate-800 transition-all hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
               aria-label="GitHub"
             >
-              <Github size={20} />
+              <GithubLogo size={20} weight="fill" />
             </a>
             <a 
               href="https://www.linkedin.com/in/arthur-ribeiro-3186852b2" 
@@ -37,14 +37,14 @@ export const Footer = () => {
               className="p-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 hover:border-blue-400 dark:hover:border-blue-500/50 hover:bg-white dark:hover:bg-slate-800 transition-all hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
+              <LinkedinLogo size={20} weight="fill" />
             </a>
             <a 
               href="mailto:atrubr@gmail.com" 
               className="p-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary hover:border-primary/50 dark:hover:border-primary/50 hover:bg-white dark:hover:bg-slate-800 transition-all hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
               aria-label="Email"
             >
-              <Mail size={20} />
+              <EnvelopeSimple size={20} weight="fill" />
             </a>
           </div>
         </div>

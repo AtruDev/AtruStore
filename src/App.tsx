@@ -11,6 +11,7 @@ import { Home } from "./pages/Home";
 import { ProductDetails } from "./pages/ProductDetails";
 import { Wishlist } from "./pages/Wishlist";
 import { Checkout } from "./pages/Checkout";
+import { Manifesto } from "./pages/Manifesto";
 import { Footer } from "./components/Footer";
 import { TechStackWidget } from "./components/TechStackWidget";
 
@@ -23,6 +24,7 @@ function AnimatedRoutes() {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/manifesto" element={<Manifesto />} />
       </Routes>
     </AnimatePresence>
   );

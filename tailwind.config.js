@@ -9,14 +9,11 @@ export default {
     extend: {
       colors: {
         primary: "#ACC8A2",    
-        background: "#1A2517", 
-        surface: "#243321",    
+        background: "#0A0D0A", 
+        surface: "#111512",    
       },
       fontFamily: {
-        
-        sans: ['Space Grotesk', 'Inter', 'sans-serif'],
-        
-        
+        sans: ['Space Grotesk', 'sans-serif'],
         display: ['Oughter', 'sans-serif'],
       },
       animation: {

@@ -1,4 +1,4 @@
-import { Home, Search, Heart, ShoppingBag } from 'lucide-react';
+import { House, MagnifyingGlass, Heart, Handbag } from '@phosphor-icons/react';
 import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
@@ -7,8 +7,8 @@ export const BottomNav = () => {
   const { cartCount, setIsSidebarOpen } = useCart();
 
   const navItems = [
-    { icon: Home, label: 'Início', path: '/' },
-    { icon: Search, label: 'Busca', path: '/search', disabled: true },
+    { icon: House, label: 'Início', path: '/' },
+    { icon: MagnifyingGlass, label: 'Busca', path: '/search', disabled: true },
     { icon: Heart, label: 'Favoritos', path: '/wishlist' },
   ];
 
@@ -39,7 +39,7 @@ export const BottomNav = () => {
           className="relative flex flex-col items-center justify-center w-full h-full space-y-1 text-slate-400 hover:text-slate-200 transition-colors"
         >
           <div className="relative">
-            <ShoppingBag size={20} />
+            <Handbag size={20} weight="bold" />
             {cartCount > 0 && (
               <span className="absolute -top-1 -right-2 bg-primary text-slate-900 text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">
                 {cartCount}

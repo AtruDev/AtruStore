@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code, X } from 'lucide-react';
+import { Code, X } from '@phosphor-icons/react';
 
 export const TechStackWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
