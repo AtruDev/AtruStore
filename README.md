@@ -9,20 +9,18 @@
 </p>
 
 O **AtruStore** é um e-commerce especializado em hardware e periféricos de alto nível, desenvolvido como um case de **Portfólio Front-end Premium**. O projeto foi construído focando em performance de renderização, imersão visual e excelência técnica arquitetural, utilizando o que há de mais moderno no ecossistema React.
-
-<img width="100%" alt="AtruStore Hero" src="https://github.com/user-attachments/assets/360463b2-8490-415b-9008-09aedff14536" />  
-
+<img width="100%" alt="AtruStore Premium Hero" src="./public/preview.png" />  
+<p align="center"><i>*Para visualizar com perfeição, navegue também pelo modo Escuro.</i></p>
 ---
 
 ## 🌟 Destaques & Diferenciais (Premium Portfolio)
 
 Este projeto vai além de um CRUD básico, incorporando *features* avançadas fortemente exigidas por recrutadores e engenheiros seniores:
 
-- **🌗 Tema Dinâmico (Dark/Light):** Transição perfeita de esquemas de core entre modos claro e escuro, comprovando domínio avançado do Tailwind CSS (`darkMode: 'class'`).
-- **♿ Acessibilidade (A11y):** Totalmente navegável via teclado, com delineadores de foco refinados e padronizados (`focus-visible`), garantindo alta inclusividade digital.
-- **✨ Microinterações e Animações Táticas:** Utilização extensiva de `framer-motion` para transições encadeadas (*stagger*), botões reativos, cards levitantes (hover physics) e Modais expansíveis.
-- **🦴 Arquitetura de Skeletons:** Simulação realística de *fetching* de API baseada em Promises para prevenir *Cumulative Layout Shift (CLS)* do grid de produtos.
-- **💾 Persistência de Estado (State Management):** Gerenciamento robusto via *Context API* para o Carrinho de Compras e Lista de Favoritos, com sincronização instantânea de cache com `localStorage`.
+- **🌗 Tema Dinâmico Inteligente**: Uso massivo de "Glassmorphism", Off-Black nativos e contrastes absolutos que descansam a visão (Premium Dark Mode).
+- **💳 Checkout Holofgráfico 3D**: Renderização dinâmica de validação de pagamentos que simula física 3D real usando leitura de focos no cartão.
+- **✨ Scroll-Telling & Microinterações**: Utilização agressiva de `framer-motion` para transições encadeadas, "Hotspots" interativos de setups de mesa que disparam o carrinho, e Parágrafos em Landing Page (Manifesto) guiados pela barra de rolagem matemática.
+- **💾 Persistência de Estado Modular**: Gerenciamento robusto via Context API protegendo compras em andamento de reloads bruscos via LocalStorage.
 
 ---
 
